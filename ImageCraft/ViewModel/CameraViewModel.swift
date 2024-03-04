@@ -7,6 +7,9 @@ class CameraViewModel: ObservableObject {
     @Published var isShareSheetShowing = false
     @Published var isCameraViewShowing = false
     @Published var isPhotoLibraryViewShowing = false
+    @Published var isCameraPresented = false
+    @Published var isPhotoLibraryPresented = false
+    @Published var sourceType: UIImagePickerController.SourceType?
     @Published var brightness = 0.0
     @Published var contrast = 0.0
     @Published var saturation = 0.0
@@ -17,7 +20,19 @@ class CameraViewModel: ObservableObject {
     let imageProcessor = ImageProcessor()
     
     func openCamera() {
-        isCameraViewShowing = true
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            isCameraPresented = true
+        } else {
+            print("Camera not available")
+        }
+    }
+
+    func openPhotoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            isPhotoLibraryPresented = true
+        } else {
+            print("Photo Library not available")
+        }
     }
     
     func handlePickedImage(_ pickedImage: UIImage) {
@@ -28,10 +43,6 @@ class CameraViewModel: ObservableObject {
     func applyFilter(_ filterType: FilterType) {
         guard let image = image else { return }
         self.image = imageProcessor.applyFilter(to: image, filterType: filterType)
-    }
-    
-    func openPhotoLibrary() {
-        isPhotoLibraryViewShowing = true
     }
     
     func adjustBrightness(_ brightness: Float) {
