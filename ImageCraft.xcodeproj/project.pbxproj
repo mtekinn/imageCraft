@@ -35,6 +35,7 @@
 		E1279E822B966C5D0082D5C5 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 		E1279E882B966CD40082D5C5 /* ImageCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1279E8A2B966CD50082D5C5 /* ImageCraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCraftTests.swift; sourceTree = "<group>"; };
+		E1279E912B9676DE0082D5C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E1E78DB32B96274C00737D88 /* ImageCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E78DB62B96274C00737D88 /* ImageCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCraftApp.swift; sourceTree = "<group>"; };
 		E1E78DB82B96274C00737D88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		E1E78DB52B96274C00737D88 /* ImageCraft */ = {
 			isa = PBXGroup;
 			children = (
+				E1279E912B9676DE0082D5C5 /* Info.plist */,
 				E1E78DCC2B96336200737D88 /* Representables */,
 				E1E78DC92B96334E00737D88 /* Utilities */,
 				E1E78DC62B9632CB00737D88 /* ViewModel */,
@@ -451,9 +453,12 @@
 				DEVELOPMENT_TEAM = TNY32NLQ4N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageCraft/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take passport photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save passport photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -483,9 +488,12 @@
 				DEVELOPMENT_TEAM = TNY32NLQ4N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageCraft/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take passport photos";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save passport photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 
 class CameraViewModel: ObservableObject {
+    
     @Published var image: UIImage?
     @Published var isShareSheetShowing = false
     @Published var isCameraViewShowing = false
