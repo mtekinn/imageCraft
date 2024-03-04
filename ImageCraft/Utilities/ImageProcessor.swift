@@ -2,12 +2,6 @@ import UIKit
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
-enum FilterType {
-    case sepia
-    case noir
-    case comic
-}
-
 class ImageProcessor {
     let context = CIContext()
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1279E812B966C360082D5C5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1279E802B966C360082D5C5 /* Photo.swift */; };
+		E1279E832B966C5D0082D5C5 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1279E822B966C5D0082D5C5 /* FilterType.swift */; };
+		E1279E8B2B966CD50082D5C5 /* ImageCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1279E8A2B966CD50082D5C5 /* ImageCraftTests.swift */; };
 		E1E78DB72B96274C00737D88 /* ImageCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E78DB62B96274C00737D88 /* ImageCraftApp.swift */; };
 		E1E78DB92B96274C00737D88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E78DB82B96274C00737D88 /* ContentView.swift */; };
 		E1E78DBB2B96274D00737D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E78DBA2B96274D00737D88 /* Assets.xcassets */; };
@@ -17,7 +20,21 @@
 		E1E78DD02B96337400737D88 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E78DCF2B96337400737D88 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E1279E8C2B966CD50082D5C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1E78DAB2B96274B00737D88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1E78DB22B96274C00737D88;
+			remoteInfo = ImageCraft;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		E1279E802B966C360082D5C5 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		E1279E822B966C5D0082D5C5 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
+		E1279E882B966CD40082D5C5 /* ImageCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1279E8A2B966CD50082D5C5 /* ImageCraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCraftTests.swift; sourceTree = "<group>"; };
 		E1E78DB32B96274C00737D88 /* ImageCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E78DB62B96274C00737D88 /* ImageCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCraftApp.swift; sourceTree = "<group>"; };
 		E1E78DB82B96274C00737D88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E1279E852B966CD40082D5C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1E78DB02B96274C00737D88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1279E892B966CD50082D5C5 /* ImageCraftTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1279E8A2B966CD50082D5C5 /* ImageCraftTests.swift */,
+			);
+			path = ImageCraftTests;
+			sourceTree = "<group>";
+		};
 		E1E78DAA2B96274B00737D88 = {
 			isa = PBXGroup;
 			children = (
 				E1E78DB52B96274C00737D88 /* ImageCraft */,
+				E1279E892B966CD50082D5C5 /* ImageCraftTests */,
 				E1E78DB42B96274C00737D88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E78DB32B96274C00737D88 /* ImageCraft.app */,
+				E1279E882B966CD40082D5C5 /* ImageCraftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +116,8 @@
 		E1E78DC42B9632BD00737D88 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1279E802B966C360082D5C5 /* Photo.swift */,
+				E1279E822B966C5D0082D5C5 /* FilterType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +158,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E1279E872B966CD40082D5C5 /* ImageCraftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1279E8E2B966CD50082D5C5 /* Build configuration list for PBXNativeTarget "ImageCraftTests" */;
+			buildPhases = (
+				E1279E842B966CD40082D5C5 /* Sources */,
+				E1279E852B966CD40082D5C5 /* Frameworks */,
+				E1279E862B966CD40082D5C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1279E8D2B966CD50082D5C5 /* PBXTargetDependency */,
+			);
+			name = ImageCraftTests;
+			productName = ImageCraftTests;
+			productReference = E1279E882B966CD40082D5C5 /* ImageCraftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E1E78DB22B96274C00737D88 /* ImageCraft */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1E78DC12B96274D00737D88 /* Build configuration list for PBXNativeTarget "ImageCraft" */;
@@ -149,6 +203,10 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					E1279E872B966CD40082D5C5 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = E1E78DB22B96274C00737D88;
+					};
 					E1E78DB22B96274C00737D88 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -168,11 +226,19 @@
 			projectRoot = "";
 			targets = (
 				E1E78DB22B96274C00737D88 /* ImageCraft */,
+				E1279E872B966CD40082D5C5 /* ImageCraftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E1279E862B966CD40082D5C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1E78DB12B96274C00737D88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,12 +251,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E1279E842B966CD40082D5C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1279E8B2B966CD50082D5C5 /* ImageCraftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1E78DAF2B96274C00737D88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1279E812B966C360082D5C5 /* Photo.swift in Sources */,
 				E1E78DB92B96274C00737D88 /* ContentView.swift in Sources */,
 				E1E78DD02B96337400737D88 /* ShareSheet.swift in Sources */,
+				E1279E832B966C5D0082D5C5 /* FilterType.swift in Sources */,
 				E1E78DB72B96274C00737D88 /* ImageCraftApp.swift in Sources */,
 				E1E78DCB2B96335900737D88 /* ImageProcessor.swift in Sources */,
 				E1E78DCE2B96336E00737D88 /* CameraView.swift in Sources */,
@@ -200,7 +276,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E1279E8D2B966CD50082D5C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1E78DB22B96274C00737D88 /* ImageCraft */;
+			targetProxy = E1279E8C2B966CD50082D5C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E1279E8F2B966CD50082D5C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNY32NLQ4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtekin.ImageCraftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageCraft";
+			};
+			name = Debug;
+		};
+		E1279E902B966CD50082D5C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TNY32NLQ4N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtekin.ImageCraftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageCraft";
+			};
+			name = Release;
+		};
 		E1E78DBF2B96274D00737D88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -387,6 +507,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E1279E8E2B966CD50082D5C5 /* Build configuration list for PBXNativeTarget "ImageCraftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1279E8F2B966CD50082D5C5 /* Debug */,
+				E1279E902B966CD50082D5C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E1E78DAE2B96274B00737D88 /* Build configuration list for PBXProject "ImageCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

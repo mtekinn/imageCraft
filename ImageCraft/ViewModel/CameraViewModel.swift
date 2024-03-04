@@ -82,7 +82,7 @@ class CameraViewModel: ObservableObject {
         guard let image = image else { return }
         self.image = imageProcessor.flip(image: image, orientation: .upMirrored)
     }
-
+    
     func flipImageVertically() {
         guard let image = image else { return }
         self.image = imageProcessor.flip(image: image, orientation: .downMirrored)
@@ -91,7 +91,11 @@ class CameraViewModel: ObservableObject {
     func shareImage() {
         guard let image = image else { return }
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first,
+           let rootViewController = window.rootViewController {
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
     }
     
     func saveImage() {
