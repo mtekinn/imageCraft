@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct PassportPhotoApp: App {
+struct ImageCraftApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
