@@ -1,27 +1,32 @@
-# ImageCraft
+# ImageCraft - SwiftUI Photo Editor
 
-ImageCraft is an image editing application developed as a part of a CV enhancement project. It's built using SwiftUI and provides a variety of features to modify and enhance images on iOS devices.
+ImageCraft is a SwiftUI-based photo editing application that enables users to apply filters and adjust their photos' brightness, contrast, and saturation.
 
 ## Features
 
-- **Image Selection**: Capture a new photo or select an existing one from your library.
-- **Adjustments**: Fine-tune brightness, contrast, and saturation to enhance image quality.
-- **Effects**: Apply effects like vignette, sepia tone, color inversion, and grayscale to create unique image styles.
-- **Transformations**: Rotate, crop, or flip your images for better composition.
-- **Filters**: Enhance your photos with artistic filters like sepia, noir, and comic.
-- **Actions**: Save your edited image or share it directly from the app.
+- Capture photos using the camera or select from the photo library.
+- Apply filters like sepia, noir, comic, and more.
+- Adjust photo brightness, contrast, and saturation levels.
+- Share edited photos or save them to the device.
 
-## How to Use
+## Usage
 
-1. Clone or download the repository.
-2. Open the project in Xcode.
-3. Run the app on an iOS Simulator or a physical device.
+- **Open Camera**: To take a new photo.
+- **Open Photo Library**: To select an existing photo.
+- **Apply Filters and Adjustments**: Once a photo is selected, you can apply different filters and make adjustments using the sliders provided.
+- **Share or Save**: Share your edited photo with others or save it to your device using the corresponding buttons.
 
-## Project Purpose
+## Installation
 
-This project serves as a demonstration of proficiency in SwiftUI and iOS development. It showcases the ability to work with UIKit in SwiftUI, handle image processing, and create a user-friendly interface.
+1. Clone the repository:
+```bash
+git clone https://github.com/mtekinn/imageCraft.git
+- **2. Navigate to the project directory:
+cd ImageCraft
+3 Open the project in Xcode:
+open ImageCraft.xcodeproj
+4. Run the application in the simulator or on a real device.
 
-## Requirements
+Contributing
+Contributions are welcome. Feel free to fork the repository, make changes, and submit pull requests.
 
-- iOS 14.0 or later
-- Xcode 12.0 or later
