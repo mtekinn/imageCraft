@@ -5,55 +5,76 @@ import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
     @StateObject private var viewModel = CameraViewModel()
-    
+    @State private var selectedFilterIndex: Int? = nil
+
     var body: some View {
-        VStack {
-            // Limit the height of the image to a fraction of the total available height
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: UIScreen.main.bounds.height / 3)
-            } else {
-                Text("No Image")
+        NavigationView {
+            VStack {
+                ZStack {
+                    // Arka planı dinamik olarak güncelle
+                    BackgroundView(imageSelected: viewModel.image != nil)
+
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxHeight: 300)
+                            .cornerRadius(10)
+                            .padding()
+                    } else {
+                        Text("Please select an image to edit")
+                            .foregroundColor(.white)
+                            .italic()
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                Picker("Select Filter", selection: $selectedFilterIndex) {
+                    Text("Original").tag(nil as Int?)
+                    ForEach(FilterType.allCases.indices, id: \.self) { index in
+                        Text(FilterType.allCases[index].displayName).tag(index as Int?)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .padding()
+                .onChange(of: selectedFilterIndex) { newIndex in
+                    if let newIndex = newIndex {
+                        let filterType = FilterType.allCases[newIndex]
+                        viewModel.applyFilter(filterType)
+                    } else {
+                        viewModel.applyFilter(.none)
+                    }
+                }
+
+                SourceButtonsView(viewModel: viewModel)
             }
-            
-            SourceButtonsView(viewModel: viewModel)
-            
-            if viewModel.image != nil {
-                TabView {
-                    ImageAdjustmentsView(viewModel: viewModel)
-                        .tabItem {
-                            Image(systemName: "slider.horizontal.3")
-                            Text("Adjustments")
-                        }
-                    
-                    ImageEffectsView(viewModel: viewModel)
-                        .tabItem {
-                            Image(systemName: "wand.and.stars")
-                            Text("Effects")
-                        }
-                    
-                    ImageTransformationsView(viewModel: viewModel)
-                        .tabItem {
-                            Image(systemName: "arrow.rotate.right")
-                            Text("Transformations")
-                        }
-                    
-                    ImageFiltersView(viewModel: viewModel)
-                        .tabItem {
-                            Image(systemName: "camera.filters")
-                            Text("Filters")
-                        }
-                    
-                    ImageActionsView(viewModel: viewModel)
-                        .tabItem {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("Actions")
-                        }
+            .navigationTitle("ImageCraft")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.shareImage()
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
                 }
             }
         }
+    }
+}
+
+// Dinamik arka plan görünümü
+struct BackgroundView: View {
+    var imageSelected: Bool
+    
+    var body: some View {
+        Group {
+            if imageSelected {
+                Color.white
+            } else {
+                RadialGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), center: .center, startRadius: 20, endRadius: 500)
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
@@ -189,21 +210,36 @@ struct ImageTransformationsView: View {
 
 struct ImageFiltersView: View {
     @ObservedObject var viewModel: CameraViewModel
+    @State private var selectedFilter: FilterType? = .none
+    
+    let filterButtonWidth: CGFloat = 100
+    let filterButtonHeight: CGFloat = 40
     
     var body: some View {
-        VStack {
-            Button("Apply Sepia Filter") {
-                viewModel.applyFilter(.sepia)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(FilterType.allCases, id: \.self) { filterType in
+                    Button(action: {
+                        withAnimation {
+                            selectedFilter = filterType
+                            viewModel.applyFilter(filterType)
+                        }
+                    }) {
+                        Text(filterType.displayName)
+                            .frame(width: filterButtonWidth, height: filterButtonHeight)
+                            .foregroundColor(.white)
+                            .background(selectedFilter == filterType ? Color.blue : Color.gray)
+                            .cornerRadius(filterButtonHeight / 2)
+                            .scaleEffect(selectedFilter == filterType ? 1.2 : 1)
+                            .opacity(selectedFilter == filterType ? 1 : 0.7)
+                    }
+                }
             }
-            Button("Apply Noir Filter") {
-                viewModel.applyFilter(.noir)
-            }
-            Button("Apply Comic Filter") {
-                viewModel.applyFilter(.comic)
-            }
+            .padding(.horizontal)
         }
     }
 }
+
 
 struct ImageActionsView: View {
     @ObservedObject var viewModel: CameraViewModel

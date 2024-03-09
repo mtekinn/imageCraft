@@ -57,6 +57,44 @@ class ImageProcessor {
             let comicFilter = CIFilter.comicEffect()
             comicFilter.inputImage = ciImage
             outputImage = comicFilter.outputImage
+        case .oldFilm:
+            let sepiaFilter = CIFilter.sepiaTone()
+            sepiaFilter.inputImage = ciImage
+            sepiaFilter.intensity = 0.8
+            if let output = sepiaFilter.outputImage {
+                let noiseFilter = CIFilter.noiseReduction()
+                noiseFilter.inputImage = output
+                noiseFilter.noiseLevel = 0.02
+                outputImage = noiseFilter.outputImage
+            }
+        case .hdr:
+            let toneCurveFilter = CIFilter.toneCurve()
+            toneCurveFilter.inputImage = ciImage
+            toneCurveFilter.point0 = CGPoint(x: 0.0, y: 0.0)
+            toneCurveFilter.point1 = CGPoint(x: 0.25, y: 0.15)
+            toneCurveFilter.point2 = CGPoint(x: 0.5, y: 0.5)
+            toneCurveFilter.point3 = CGPoint(x: 0.75, y: 0.85)
+            toneCurveFilter.point4 = CGPoint(x: 1.0, y: 1.0)
+            outputImage = toneCurveFilter.outputImage
+        case .bokeh:
+            let blurFilter = CIFilter.gaussianBlur()
+            blurFilter.inputImage = ciImage
+            blurFilter.radius = 10
+            outputImage = blurFilter.outputImage
+        case .colorPop:
+            let falseColorFilter = CIFilter.falseColor()
+            falseColorFilter.inputImage = ciImage
+            falseColorFilter.color0 = CIColor(color: UIColor.magenta)
+            falseColorFilter.color1 = CIColor(color: UIColor.yellow)
+            outputImage = falseColorFilter.outputImage
+        case .dramaticShadows:
+            let contrastFilter = CIFilter.colorControls()
+            contrastFilter.inputImage = ciImage
+            contrastFilter.contrast = 1.5
+            outputImage = contrastFilter.outputImage
+
+        default:
+            outputImage = ciImage
         }
         
         guard let ciOutputImage = outputImage,

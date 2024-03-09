@@ -4,6 +4,7 @@ import UIKit
 class CameraViewModel: ObservableObject {
     
     @Published var image: UIImage?
+    @Published var originalImage: UIImage?
     @Published var isShareSheetShowing = false
     @Published var isCameraViewShowing = false
     @Published var isPhotoLibraryViewShowing = false
@@ -37,12 +38,17 @@ class CameraViewModel: ObservableObject {
     
     func handlePickedImage(_ pickedImage: UIImage) {
         let croppedImage = imageProcessor.cropToBounds(image: pickedImage, width: 600, height: 800) // 4:3 aspect ratio
+        self.originalImage = croppedImage
         self.image = croppedImage
     }
     
     func applyFilter(_ filterType: FilterType) {
-        guard let image = image else { return }
-        self.image = imageProcessor.applyFilter(to: image, filterType: filterType)
+        if filterType == .none {
+            image = originalImage
+            return
+        }
+        guard let image = image, let originalImage = originalImage else { return }
+        self.image = imageProcessor.applyFilter(to: originalImage, filterType: filterType)
     }
     
     func adjustBrightness(_ brightness: Float) {
