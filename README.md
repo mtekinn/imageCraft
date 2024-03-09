@@ -21,7 +21,7 @@ ImageCraft is a SwiftUI-based photo editing application that enables users to ap
 1. Clone the repository:
 ```bash
 git clone https://github.com/mtekinn/imageCraft.git
-- **2. Navigate to the project directory:
+2. Navigate to the project directory:
 cd ImageCraft
 3 Open the project in Xcode:
 open ImageCraft.xcodeproj
