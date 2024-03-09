@@ -26,8 +26,7 @@ cd ImageCraft
 3 Open the project in Xcode:
 open ImageCraft.xcodeproj
 4. Run the application in the simulator or on a real device.
-
-
+```
 ## Contributing
-Contributions are welcome. Feel free to fork the repository, make changes, and submit pull requests.
+- **Contributions are welcome. Feel free to fork the repository, make changes, and submit pull requests.
 
