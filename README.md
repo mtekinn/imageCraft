@@ -27,6 +27,7 @@ cd ImageCraft
 open ImageCraft.xcodeproj
 4. Run the application in the simulator or on a real device.
 
-Contributing
+
+## Contributing
 Contributions are welcome. Feel free to fork the repository, make changes, and submit pull requests.
 
